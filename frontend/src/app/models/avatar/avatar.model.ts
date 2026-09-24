@@ -1,0 +1,1 @@
+export interface Avatar { id: string; imagen: string; }

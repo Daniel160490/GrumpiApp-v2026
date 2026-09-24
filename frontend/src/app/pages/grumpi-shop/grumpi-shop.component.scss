@@ -1,0 +1,176 @@
+.shop-page {
+  min-height: 100vh;
+  background-color: #f7f9fc;
+  padding: 24px;
+  font-family: 'Comfortaa', cursive;
+}
+
+/* Barra Superior Estilo Dashboard */
+.shop-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1000px;
+  margin: 0 auto 30px auto;
+
+  .btn-back {
+    background: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 40px;
+    font-weight: bold;
+    color: #475569;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s;
+    &:active { transform: scale(0.95); }
+  }
+
+  /* Tarjeta de Monedas Redondeada */
+  .wallet-badge {
+    background: white;
+    padding: 12px 28px;
+    border-radius: 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
+    border: 1px solid rgba(226, 232, 240, 0.8);
+
+    .wallet-icon { font-size: 2rem; }
+    .wallet-info {
+      display: flex;
+      flex-direction: column;
+      .wallet-label { font-size: 0.85rem; color: #94a3b8; font-weight: bold; }
+      .wallet-amount { font-size: 1.3rem; font-weight: 700; color: #1e293b; }
+    }
+  }
+}
+
+/* Píldoras de categoría idénticas a la imagen del móvil */
+.category-nav {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 35px;
+  overflow-x: auto;
+  padding: 5px;
+
+  button {
+    background: white;
+    border: none;
+    padding: 14px 28px;
+    border-radius: 40px;
+    font-weight: bold;
+    color: #64748b;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+    transition: all 0.2s ease;
+
+    &:hover { color: #1e293b; }
+    
+    &.active {
+      background: #0084ff; /* Azul vibrante de barra de progreso */
+      color: white;
+      box-shadow: 0 8px 16px rgba(0, 132, 255, 0.25);
+    }
+  }
+}
+
+/* Rejilla de productos fluida */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Tarjetas con esquinas súper redondeadas y colores pastel */
+.product-card {
+  border-radius: 32px; /* Redondeado curvo premium */
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.02);
+  transition: transform 0.3s ease;
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+
+  .product-icon-wrapper {
+    width: 90px;
+    height: 90px;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    margin-bottom: 16px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.02);
+  }
+
+  .product-details {
+    text-align: center;
+    margin-bottom: 20px;
+
+    .product-name { font-size: 1.25rem; color: #1e293b; margin: 0 0 8px 0; font-weight: 700; }
+    .product-desc { font-size: 0.95rem; color: #64748b; line-height: 1.4; margin: 0; }
+  }
+
+  /* Botón de compra redondeado tipo cápsula */
+  .btn-buy {
+    width: 100%;
+    background: white;
+    border: none;
+    padding: 14px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #1e293b;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: all 0.2s;
+
+    &:hover:not([disabled]) {
+      background: #1e293b;
+      color: white;
+    }
+
+    &:disabled {
+      background: rgba(0, 0, 0, 0.05);
+      color: #94a3b8;
+      cursor: not-allowed;
+      box-shadow: none;
+    }
+  }
+}
+
+.energy-info-box {
+    max-width: 1000px;
+    margin: 0 auto 30px auto;
+    padding: 24px;
+    background: #f0fdf4; /* Verde suave para energía */
+    border: 2px dashed #22c55e;
+    border-radius: 32px;
+    color: #166534;
+
+    h3 { margin-top: 0; color: #15803d; }
+    ul { 
+        display: grid; 
+        grid-template-columns: 1fr 1fr; 
+        gap: 10px; 
+        padding-left: 20px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .energy-info-box ul { grid-template-columns: 1fr; }
+}

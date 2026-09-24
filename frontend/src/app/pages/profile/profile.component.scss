@@ -1,0 +1,320 @@
+/* =========================================
+   VARIABLES GLOBALES DEL PERFIL
+   ========================================= */
+:host {
+  --bg-color: #f7f9fc;
+  --card-bg: #ffffff;
+  --text-dark: #1e293b;
+  --text-muted: #64748b;
+  --radius-xl: 32px;
+  --radius-pill: 50px;
+  --shadow-soft: 0 12px 24px rgba(0, 0, 0, 0.04);
+}
+
+/* =========================================
+   CONTENEDOR PRINCIPAL
+   ========================================= */
+.premium-layout {
+  min-height: 100vh;
+  background-color: var(--bg-color);
+  padding: 24px 20px;
+  font-family: 'Comfortaa', cursive, sans-serif;
+  max-width: 650px; 
+  margin: 0 auto;
+}
+
+/* =========================================
+   TARJETA DE IDENTIDAD CENTRAL
+   ========================================= */
+.identity-card {
+  background: var(--card-bg);
+  border-radius: var(--radius-xl);
+  padding: 75px 20px 30px; 
+  text-align: center;
+  box-shadow: var(--shadow-soft);
+  position: relative;
+  margin-bottom: 24px;
+
+  .avatar-ring {
+    width: 130px;
+    height: 130px;
+    background: var(--bg-color);
+    border-radius: 50%;
+    position: absolute;
+    top: -65px; /* Sube la mitad exacta de su altura */
+    left: 50%;
+    transform: translateX(-50%);
+    border: 6px solid var(--card-bg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.06);
+
+    .emoji-avatar { font-size: 5rem; line-height: 1; margin-top: 10px; }
+    .image-avatar { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+    
+    .edit-badge {
+      position: absolute;
+      bottom: 5px;
+      right: -5px;
+      background: white;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+      font-size: 1.2rem;
+      border: 2px solid #e2e8f0;
+    }
+  }
+
+  .player-name { font-size: 1.8rem; font-weight: 700; color: var(--text-dark); margin: 0 0 5px; }
+  .player-title { font-size: 1rem; color: var(--text-muted); margin: 0; }
+}
+
+/* =========================================
+   TARJETAS DE ESTADÍSTICAS
+   ========================================= */
+.stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 24px;
+
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr; /* Una sola columna en móviles pequeños */
+  }
+
+  .stat-card {
+    background: var(--card-bg);
+    border-radius: 24px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: var(--shadow-soft);
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+
+    .stat-icon { font-size: 2.2rem; flex-shrink: 0; }
+    
+    .stat-info {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      min-width: 0; /* Necesario para que funcione el text-overflow en flexbox */
+      
+      .stat-label { 
+        font-size: 0.75rem; 
+        font-weight: 700; 
+        color: var(--text-muted); 
+        text-transform: uppercase;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .stat-value { font-size: 1.6rem; font-weight: 700; color: var(--text-dark); }
+    }
+
+    &.energy-card { background: #f3e6ff; }
+    &.coin-card { background: #fef9c3; cursor: default; }
+
+    .info-hint { position: absolute; top: 12px; right: 12px; font-size: 0.9rem; opacity: 0.5; }
+  }
+}
+
+/* =========================================
+   MARCAS DE COMBATE (VAULT)
+   ========================================= */
+.vault-card {
+  background: var(--card-bg);
+  border-radius: 24px;
+  padding: 24px;
+  box-shadow: var(--shadow-soft);
+  margin-bottom: 24px;
+
+  .vault-title { 
+    font-size: 1rem; 
+    font-weight: 700; 
+    color: var(--text-dark); 
+    margin: 0 0 16px; 
+    text-transform: uppercase;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .vault-shelf {
+    background: var(--bg-color);
+    border-radius: 16px;
+    padding: 16px;
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    min-height: 80px;
+    align-items: center;
+
+    .empty-msg { font-size: 0.9rem; color: var(--text-muted); font-style: italic; }
+    .mark-item { width: 45px; height: 45px; object-fit: contain; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1)); }
+  }
+
+  .medal-wrapper {
+    transition: transform 0.2s;
+    &:hover { transform: scale(1.1); }
+    
+    .medal-item {
+      width: 55px; 
+      height: 55px;
+      object-fit: contain;
+      border-radius: 50%;
+      border: 2px solid #e2e8f0;
+      background: white;
+    }
+  }
+}
+
+/* =========================================
+   BOTONES DE ACCIÓN GIGANTES INFERIORES
+   ========================================= */
+.actions-row {
+  display: flex;
+  gap: 16px;
+
+  @media (max-width: 480px) {
+    flex-direction: column; /* Se apilan en vertical si la pantalla es muy estrecha */
+  }
+
+  .action-btn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 1.05rem;
+    padding: 18px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    box-shadow: var(--shadow-soft);
+    transition: transform 0.1s;
+    overflow: hidden;
+    white-space: nowrap;
+
+    &:active { transform: scale(0.97); }
+    &.btn-bag { background: #dcfce7; color: #166534; }
+    &.btn-game { background: #dbeafe; color: #1e40af; }
+  }
+}
+
+/* =========================================
+   ESTILOS DE LOS MODALES
+   ========================================= */
+.custom-modal {
+  border-radius: var(--radius-xl);
+  border: none;
+  font-family: 'Comfortaa', cursive, sans-serif;
+  overflow: hidden;
+
+  .modal-header { 
+    border-bottom: none; 
+    padding: 24px 24px 0; 
+    .modal-title { font-weight: 700; color: var(--text-dark); } 
+  }
+  .modal-body { padding: 24px; }
+}
+
+/* Modal de Selección de Avatar */
+.avatar-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  gap: 16px;
+
+  .avatar-option {
+    background: var(--bg-color);
+    border-radius: 20px;
+    aspect-ratio: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.2s;
+    
+    &:hover { transform: scale(1.05); background: #e2e8f0; }
+
+    .emoji-preview { font-size: 3rem; }
+    .image-preview { width: 70%; height: 70%; object-fit: contain; }
+  }
+}
+
+/* Modal de Energías */
+.energies-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  .energy-row {
+    display: flex;
+    align-items: center;
+    background: var(--bg-color);
+    padding: 12px 16px;
+    border-radius: 16px;
+
+    .energy-icon { font-size: 1.5rem; margin-right: 16px; }
+    .energy-name { flex-grow: 1; font-weight: 700; color: var(--text-dark); }
+    .energy-count {
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-weight: 700;
+      color: white;
+      
+      &.bg-blue { background: #3b82f6; }
+      &.bg-red { background: #ef4444; }
+      &.bg-gray { background: #94a3b8; }
+      &.bg-yellow { background: #eab308; color: #713f12; }
+      &.bg-orange { background: #f97316; }
+    }
+  }
+}
+
+.encargado-card {
+  background: #fdf2f8; /* Un tono rosado/suave para diferenciarlo */
+  border: 2px solid #fbcfe8;
+  border-radius: var(--radius-xl);
+  padding: 24px;
+  margin-bottom: 24px;
+  box-shadow: var(--shadow-soft);
+
+  .encargado-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+
+    .role-icon { font-size: 2.5rem; }
+    .role-info {
+      h3 { margin: 0; font-size: 1.2rem; color: #831843; }
+      .role-label { margin: 0; font-size: 0.8rem; color: #be185d; font-weight: bold; }
+    }
+  }
+
+  .task-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    
+    li {
+      margin-bottom: 8px;
+      font-size: 0.9rem;
+      color: var(--text-dark);
+      display: flex;
+      align-items: center;
+      .check { margin-right: 10px; }
+    }
+  }
+}

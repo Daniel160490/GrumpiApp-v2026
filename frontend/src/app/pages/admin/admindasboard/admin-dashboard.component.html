@@ -1,0 +1,13 @@
+<main class="admin-layout">
+    <nav class="admin-sidebar">
+        <button class="btn-exit" (click)="logout()">Volver a GrumpiApp</button>
+        <h2>Panel del Profe</h2>
+        <a routerLink="/admin/overview">🏠 Resumen</a>
+        <a routerLink="/admin/blog">📢 Crear Post</a>
+        <a routerLink="/admin/students">🎓 Gestionar Alumnos</a>
+    </nav>
+
+    <section class="admin-content">
+        <router-outlet></router-outlet>
+    </section>
+</main>

@@ -1,0 +1,45 @@
+<main class="premium-layout">
+  
+  <nav class="top-bar">
+    <button class="pill-btn btn-back" routerLink="/menu">◀ {{ "BACK" | translate }}</button>
+    <h1 class="page-title">{{ "HELP.TITLE" | translate }}</h1>
+    <div class="spacer"></div>
+  </nav>
+
+  <div class="guide-intro">
+    <p>{{ "HELP.INTRO" | translate }}</p>
+  </div>
+
+  <section class="guide-grid">
+    <!-- Perfil -->
+    <div class="guide-card">
+      <div class="icon">👤</div>
+      <h3>{{ "HELP.PROFILE.TITLE" | translate }}</h3>
+      <p>{{ "HELP.PROFILE.DESC" | translate }}</p>
+    </div>
+
+    <!-- Grumpidex -->
+    <div class="guide-card">
+      <div class="icon">👾</div>
+      <h3>{{ "HELP.DEX.TITLE" | translate }}</h3>
+      <p>{{ "HELP.DEX.DESC" | translate }}</p>
+    </div>
+
+    <!-- Mochila -->
+    <div class="guide-card">
+      <div class="icon">🎒</div>
+      <h3>{{ "HELP.BAG.TITLE" | translate }}</h3>
+      <p>{{ "HELP.BAG.DESC" | translate }}</p>
+    </div>
+
+    <!-- Blog -->
+    <div class="guide-card">
+      <div class="icon">
+        📢
+        <span class="notification-dot-guide"></span>
+      </div>
+      <h3>{{ "HELP.BLOG.TITLE" | translate }}</h3>
+      <p>{{ "HELP.BLOG.DESC" | translate }}</p>
+    </div>
+  </section>
+</main>

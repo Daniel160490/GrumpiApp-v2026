@@ -1,0 +1,37 @@
+<main class="dashboard">
+  <header class="header">
+    <h1 class="title">{{ studentName() }}</h1>
+    <img 
+      class="logo" 
+      src="assets/logo/logoApp.png" 
+      alt="Los Grumpis"
+      (contextmenu)="disableRightClick($event)"
+    />
+  </header>
+
+  <section class="grid">
+    <div 
+      *ngFor="let option of menuOptions"
+      class="card"
+      [style.background-color]="option.bg"
+      [style.border-color]="option.border"
+      [routerLink]="option.route"
+    >
+      <div *ngIf="option.route === '/profile' && isEncargado()" class="encargado-badge">
+        ⭐ Encargado
+      </div>
+
+      <span class="icon">
+        {{ option.icon }}
+        <div *ngIf="option.key === 'blog' && hasNewPosts()" class="notification-dot"></div>
+      </span>
+      <h2 class="card-title">{{ option.title }}</h2>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <button class="btn btn-help" routerLink="/help">❓ Ayuda</button>
+    <button class="btn btn-logout" routerLink="/login">➔ Salir</button>
+    <button class="btn btn-admin" routerLink="/admin">⚙️ Admin</button>
+  </footer>
+</main>

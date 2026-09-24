@@ -1,0 +1,156 @@
+.login-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  // background: radial-gradient(circle, #fdd5bd 0%, #f1f5f9 100%);
+  background-image: url('../../../assets/logo/Splash.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 20px;
+  position: relative;
+}
+
+.btn-back {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-family: 'Comfortaa', cursive;
+  font-weight: bold;
+  background: white;
+  border: 3px solid #222;
+  border-radius: 50px;
+  padding: 10px 20px;
+  cursor: pointer;
+  box-shadow: 0 4px 0 #222;
+  &:active { transform: translateY(2px); box-shadow: 0 2px 0 #222; }
+}
+
+.login-box {
+  background: radial-gradient(circle, #fdd5bd46 0%, #f1f5f9 100%);
+  border: 4px solid #222;
+  border-radius: 32px;
+  width: 100%;
+  max-width: 650px;
+  padding: 30px;
+  box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.logo-gaming {
+  max-width: 160px;
+  margin-bottom: 5px;
+  border-radius: 50%;
+}
+
+.subtitle { color: #000000; font-size: 1.1rem; margin-bottom: 30px; }
+.step-title { font-family: 'Comfortaa', cursive; font-size: 1.5rem; color: #000000; margin-bottom: 25px; }
+
+/* Botones de menú de juego */
+.grid-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.game-btn {
+  font-family: 'Comfortaa', cursive;
+  font-weight: bold;
+  font-size: 1.3rem;
+  padding: 15px;
+  border: 4px solid #222;
+  border-radius: 20px;
+  cursor: pointer;
+  box-shadow: 0 6px 0 #222;
+  transition: transform 0.05s, box-shadow 0.05s;
+
+  &:active {
+    transform: translateY(4px);
+    box-shadow: 0 2px 0 #222;
+  }
+
+  &.btn-purple { background-color: #bc84ee; color: white; }
+}
+
+/* Selector de Avatares */
+.grid-avatars {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  gap: 20px;
+}
+
+.avatar-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  
+  &:hover .avatar-circle { transform: scale(1.05); }
+
+  .avatar-circle {
+    width: 80px;
+    height: 80px;
+    background: #e2e8f0;
+    border: 3px solid #222;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5rem;
+    box-shadow: 0 4px 0 #222;
+    transition: transform 0.2s;
+  }
+
+  .avatar-name { font-weight: bold; margin-top: 10px; color: #334155; font-size: 1.1rem; }
+}
+
+/* Teclado del PIN */
+.pin-display {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 25px;
+
+  .pin-dot {
+    width: 24px;
+    height: 24px;
+    border: 3px solid #222;
+    border-radius: 50%;
+    background: white;
+    &.filled { background: #ff823a; }
+  }
+}
+
+.keypad {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  max-width: 320px;
+  margin: 0 auto;
+
+  .key-btn {
+    font-family: 'Comfortaa', cursive;
+    font-weight: bold;
+    font-size: 1.4rem;
+    background: #f8fafc;
+    border: 3px solid #222;
+    border-radius: 16px;
+    padding: 15px;
+    cursor: pointer;
+    box-shadow: 0 4px 0 #222;
+
+    &:active { transform: translateY(2px); box-shadow: 0 2px 0 #222; }
+    &.empty { background: transparent; border: none; box-shadow: none; cursor: default; }
+    &.delete-btn { background: #fee2e2; color: #ef4444; }
+  }
+}
+
+/* Efecto de entrada de pantalla */
+.fade-in {
+  animation: fadeIn 0.3s ease-in-out;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}

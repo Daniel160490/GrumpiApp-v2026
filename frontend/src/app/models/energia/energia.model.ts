@@ -1,0 +1,1 @@
+export interface EnergiaIcon { imagen: string; nombreKey: string; cantidad: number; colorClass: string; }

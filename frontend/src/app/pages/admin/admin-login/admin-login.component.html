@@ -1,0 +1,21 @@
+<main class="login-page">
+  <div class="login-card">
+    <div class="header">
+      <h1>🔐 Acceso Profe</h1>
+      <p>Solo para ojos autorizados</p>
+    </div>
+    
+    <div class="form-group">
+      <input 
+        type="password" 
+        [(ngModel)]="password" 
+        placeholder="Introduce tu clave secreta"
+        (keyup.enter)="login()"
+      >
+    </div>
+
+    <button class="btn-login" (click)="login()">Entrar al Panel</button>
+    
+    <button class="btn-back" routerLink="/menu">Volver a GrumpiApp</button>
+  </div>
+</main>

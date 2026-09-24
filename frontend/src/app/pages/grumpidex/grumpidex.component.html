@@ -1,0 +1,95 @@
+<main class="premium-layout">
+  
+  <nav class="top-bar">
+    <button class="pill-btn btn-back" routerLink="/menu">
+      ◀ {{ "BACK" | translate }}
+    </button>
+    <h1 class="page-title">{{ "GRUMPIDEX" | translate }}</h1>
+    <div class="spacer"></div>
+  </nav>
+
+  <div class="search-container">
+    <input 
+      type="text" 
+      class="search-input" 
+      placeholder="🔍 Buscar por nombre o número (ej: 001, Bugi)..." 
+      (input)="buscarGrumpi($event)"
+    />
+  </div>
+
+  <section class="grumpidex-grid">
+    <div 
+      class="grumpi-card" 
+      *ngFor="let grumpi of filteredGrumpis"
+      data-bs-toggle="modal" 
+      data-bs-target="#modalGrumpiFicha"
+      (click)="abrirFicha(grumpi)"
+    >
+      <div class="card-number">#{{ grumpi.n_grumpidex }}</div>
+      <div class="card-image-wrapper">
+        <img [src]="grumpi.img_general" [alt]="grumpi.nombre" (contextmenu)="disableRightClick($event)" />
+      </div>
+      <div class="card-info">
+        <h3 class="grumpi-name">{{ grumpi.nombre }}</h3>
+        <span class="type-badge" [ngClass]="getColorClass(grumpi.tipo)">
+          {{ grumpi.tipo | translate }}
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <div *ngIf="filteredGrumpis.length === 0" class="empty-state">
+    <p>No se ha encontrado ningún Grumpi con ese nombre o número 😭</p>
+  </div>
+
+</main>
+
+<div class="modal fade" id="modalGrumpiFicha" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content custom-modal" *ngIf="selectedGrumpi">
+      
+      <div class="modal-header header-colored" [ngClass]="getColorClass(selectedGrumpi.tipo)">
+        <h5 class="modal-title">#{{ selectedGrumpi.n_grumpidex }} - {{ selectedGrumpi.nombre }}</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+      </div>
+      
+      <div class="modal-body grumpi-details">
+        
+        <div class="details-top">
+          <div class="details-image">
+            <img [src]="selectedGrumpi.img_general" [alt]="selectedGrumpi.nombre" />
+          </div>
+          <div class="details-stats">
+            <div class="stat-row">
+              <span class="stat-label">Clase:</span>
+              <span class="stat-value clase-badge">{{ selectedGrumpi.clase }}</span>
+            </div>
+            <div class="stat-row">
+              <span class="stat-label">Tipo:</span>
+              <span class="type-badge large" [ngClass]="getColorClass(selectedGrumpi.tipo)">{{ selectedGrumpi.tipo }}</span>
+            </div>
+            <div class="stat-row">
+              <span class="stat-label">PS (Salud):</span>
+              <span class="stat-value hp-value">❤️ {{ selectedGrumpi.PS }}</span>
+            </div>
+            <p class="grumpi-desc">{{ selectedGrumpi.descripcion }}</p>
+          </div>
+        </div>
+
+        <div class="details-bottom">
+          <h4 class="section-subtitle">⚔️ Ataques</h4>
+          <div class="attacks-list">
+            <div class="attack-card" *ngFor="let ataque of selectedGrumpi.ataques">
+              <div class="attack-header">
+                <span class="attack-name">{{ ataque.nombre }}</span>
+                <span class="type-badge small" *ngIf="ataque.tipo" [ngClass]="getColorClass(ataque.tipo)">{{ ataque.tipo }}</span>
+              </div>
+              <div class="attack-effect">{{ ataque.efecto }}</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

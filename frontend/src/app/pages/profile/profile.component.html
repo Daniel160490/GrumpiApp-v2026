@@ -1,0 +1,140 @@
+<main class="premium-layout">
+  
+  <nav class="top-bar">
+    <button class="pill-btn btn-back" routerLink="/menu">
+      ◀ {{ "BACK" | translate }}
+    </button>
+    <button class="pill-btn btn-logout" data-bs-toggle="modal" data-bs-target="#modalLogout">
+      {{ "LOGOUT" | translate }} ➔
+    </button>
+  </nav>
+
+  <section class="identity-card">
+    <div class="avatar-ring" data-bs-toggle="modal" data-bs-target="#modalAvatar">
+      <span *ngIf="avatarSelect.length <= 2" class="emoji-avatar">{{ avatarSelect }}</span>
+      <img *ngIf="avatarSelect.length > 2" [src]="avatarSelect" class="image-avatar" (contextmenu)="disableRightClick($event)" />
+      <div class="edit-badge">🔄</div>
+    </div>
+    <h1 class="player-name">{{ username }}</h1>
+    <p class="player-title">Entrenador Grumpi</p>
+  </section>
+
+  <section *ngIf="encargoAsignado()" class="encargado-card">
+    <div class="encargado-header">
+      <span class="role-icon">{{ encargoAsignado()?.icono }}</span>
+      <div class="role-info">
+        <h3>{{ encargoAsignado()?.rol }}</h3>
+        <p class="role-label">Tu responsabilidad semanal</p>
+      </div>
+    </div>
+    
+    <ul class="task-list">
+      <li *ngFor="let tarea of encargoAsignado()?.tareas">
+        <span class="check">✅</span> {{ tarea }}
+      </li>
+    </ul>
+  </section>
+
+  <section *ngIf="!encargoAsignado()" class="no-encargo-card">
+    <p>✨ Actualmente no tienes ninguna tarea de encargado asignada. ¡Sigue así!</p>
+  </section>
+
+
+  <section class="stats-grid">
+    <div class="stat-card energy-card" data-bs-toggle="modal" data-bs-target="#modalEnergias">
+      <div class="stat-icon">⚡</div>
+      <div class="stat-info">
+        <span class="stat-label">{{ "PROFILE_COMPONENT.TOTAL_ENERGIES" | translate }}</span>
+        <span class="stat-value">{{ totalEnergias }}</span>
+      </div>
+      <div class="info-hint">ℹ️</div>
+    </div>
+
+    <div class="stat-card coin-card">
+      <div class="stat-icon">🪙</div>
+      <div class="stat-info">
+        <span class="stat-label">{{ "PROFILE_COMPONENT.GRUMPIDOLARS" | translate }}</span>
+        <span class="stat-value">{{ grumpidolar }}</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="vault-card">
+    <h2 class="vault-title">{{ "PROFILE_COMPONENT.COMBATS_MARKS" | translate }}</h2>
+    <div class="vault-shelf">
+      <span *ngIf="marcasCombate.length === 0" class="empty-msg">¡Aún no hay marcas! Juega para conseguirlas.</span>
+      <img *ngFor="let mark of marcasCombate" src="assets/objects/GrumpiVice.png" class="mark-item" (contextmenu)="disableRightClick($event)" />
+    </div>
+  </section>
+
+  <section class="vault-card">
+    <h2 class="vault-title">🏅 MEDALLAS CONSEGUIDAS ({{ medallasAlumno.length }}/9)</h2>
+    <div class="vault-shelf">
+      <span *ngIf="medallasAlumno.length === 0" class="empty-msg">¡Sigue jugando para ganar tu primera medalla!</span>
+      
+      <div *ngFor="let medalla of medallasAlumno" class="medal-wrapper" [title]="medalla.nombre">
+        <img [src]="'assets/medals/' + medalla.archivo" class="medal-item" />
+      </div>
+    </div>
+  </section>
+
+  <section class="actions-row">
+    <button class="action-btn btn-bag" routerLink="/profile/bag">
+      🎒 {{ "PROFILE_COMPONENT.SEE_BAG" | translate }}
+    </button>
+    <button class="action-btn btn-game" routerLink="/game">
+      🎮 {{ "PROFILE_COMPONENT.GAME" | translate }}
+    </button>
+  </section>
+
+</main>
+
+<div class="modal fade" id="modalAvatar" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content custom-modal">
+      <div class="modal-header">
+        <h5 class="modal-title">{{ "PROFILE_COMPONENT.AVATAR_SELECTION" | translate }}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body avatar-grid">
+        <div *ngFor="let avatar of avatarList" class="avatar-option" data-bs-dismiss="modal" (click)="seleccionarAvatar(avatar)">
+          <span *ngIf="avatar.imagen.length <= 2" class="emoji-preview">{{ avatar.imagen }}</span>
+          <img *ngIf="avatar.imagen.length > 2" [src]="avatar.imagen" class="image-preview" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="modalEnergias" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content custom-modal">
+      <div class="modal-header">
+        <h5 class="modal-title">Tus Energías</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body energies-list">
+        <div *ngFor="let energia of energiasList" class="energy-row">
+          <div class="energy-icon">{{ energia.imagen }}</div>
+          <div class="energy-name">{{ energia.nombreKey | translate }}</div>
+          <div class="energy-count" [ngClass]="energia.colorClass">{{ energia.cantidad }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="modalLogout" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content custom-modal text-center">
+      <div class="modal-body p-5">
+        <h3 class="mb-3">¿Te marchas?</h3>
+        <p class="text-muted mb-4">{{ "MODAL.CLOSE_SESSION" | translate }}</p>
+        <div class="d-flex gap-3 justify-content-center">
+          <button class="pill-btn btn-back" data-bs-dismiss="modal">Cancelar</button>
+          <button class="pill-btn btn-logout" data-bs-dismiss="modal" (click)="logOut()">Salir</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

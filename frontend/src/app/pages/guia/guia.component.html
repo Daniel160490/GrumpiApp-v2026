@@ -1,0 +1,51 @@
+<main class="premium-layout">
+  
+  <nav class="top-bar">
+    <button class="pill-btn btn-back" routerLink="/menu">◀ {{ "BACK" | translate }}</button>
+    <h1 class="page-title">{{ "GUIDE.TITLE" | translate }}</h1>
+    <div class="spacer"></div>
+  </nav>
+
+  <section class="guide-grid">
+    <!-- Cada botón ahora es una tarjeta interactiva -->
+    <button class="guide-card" routerLink="/guia/intro">
+      <span class="icon">✨</span>
+      <h3>Nuestra gamificación</h3>
+    </button>
+    
+    <button class="guide-card" routerLink="/guia/obtain-energies">
+      <span class="icon">⚡</span>
+      <h3>Obtención de energías</h3>
+    </button>
+
+    <button class="guide-card" routerLink="/guia/grumpidolares">
+      <span class="icon">🪙</span>
+      <h3>Grumpidólares</h3>
+    </button>
+
+    <button class="guide-card" routerLink="/guia/grumpis">
+      <span class="icon">👾</span>
+      <h3>Obtención de criaturas</h3>
+    </button>
+
+    <button class="guide-card" routerLink="/guia/medals">
+      <span class="icon">🏅</span>
+      <h3>Obtención de medallas</h3>
+    </button>
+
+    <button class="guide-card" routerLink="/guia/league">
+      <span class="icon">🏆</span>
+      <h3>Liga Grumpi</h3>
+    </button>
+
+    <button class="guide-card" routerLink="/guia/combats">
+      <span class="icon">⚔️</span>
+      <h3>Combates Grumpi</h3>
+    </button>
+
+    <button class="guide-card" routerLink="/guia/grumpi-legend">
+      <span class="icon">📜</span>
+      <h3>Leyenda Grumpi</h3>
+    </button>
+  </section>
+</main>

@@ -1,0 +1,73 @@
+/* Importar tipografía redondeada premium */
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&display=swap');
+
+:root {
+  /* Paleta Los Grumpis Premium */
+  --bg-app: #f7f9fc;
+  --text-main: #1e293b;
+  --text-muted: #64748b;
+  
+  /* Colores de sección vibrantes pero limpios */
+  --color-blue: #0084ff;
+  --color-green: #22c55e;
+  --color-purple: #a855f7;
+  --color-orange: #f97316;
+  --color-pink: #ec4899;
+
+  /* Estructura unificada */
+  --font-main: 'Comfortaa', cursive, sans-serif;
+  --radius-card: 32px;      /* Esquinas súper redondeadas para tarjetas */
+  --radius-pill: 40px;      /* Redondeado cápsula para botones y píldoras */
+  
+  /* Sombras sutiles y elegantes (Efecto flotante de la foto) */
+  --shadow-sm: 0 4px 10px rgba(0, 0, 0, 0.02);
+  --shadow-md: 0 10px 25px rgba(0, 0, 0, 0.04);
+  --shadow-hover: 0 16px 32px rgba(0, 0, 0, 0.08);
+}
+
+
+body {
+  margin: 0;
+  font-family: var(--font-main);
+  background-color: var(--bg-app);
+  color: var(--text-main);
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 80px;
+
+  .pill-btn {
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 0.95rem;
+    padding: 10px 20px;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.04);
+    transition: transform 0.2s;
+    white-space: nowrap;
+
+    &:active { transform: scale(0.95); }
+    &.btn-back { background: #ffffff; color: #64748b; }
+    &.btn-logout { background: #fee2e2; color: #ef4444; }
+  }
+}
+
+.premium-layout {
+  min-height: 100vh;
+  background-color: #f7f9fc;
+  padding: 24px 20px;
+  font-family: 'Comfortaa', cursive, sans-serif;
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+

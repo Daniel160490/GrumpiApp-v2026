@@ -1,0 +1,36 @@
+<main class="premium-layout">
+  
+  <nav class="top-bar">
+    <button class="pill-btn btn-back" routerLink="/guia">◀ {{ "BACK" | translate }}</button>
+  </nav>
+
+  <article class="content-card">
+    <h1>🎮 Nuestra Gamificación</h1>
+    <p class="intro-text">
+      La gamificación es una forma de aprender jugando. Nuestro proyecto convierte el aula en un mundo mágico inspirado en juegos como Pokémon.
+    </p>
+
+    <div class="info-block">
+      <h3>✨ ¿En qué consiste?</h3>
+      <p>Capturarás criaturas, superarás retos de tus asignaturas y completarás tu <strong>Plan Lector</strong>. Cada vez que superes una prueba, recibirás un Grumpi, una medalla o incluso una copa.</p>
+    </div>
+
+    <div class="info-block roles-block">
+      <h3>🤝 Responsabilidad y Roles</h3>
+      <p>Para aprender a trabajar en equipo, tenemos encargados en clase:</p>
+      <ul>
+        <li><strong>Team Star, Enfermeros y Policía:</strong> Para el aprendizaje cooperativo.</li>
+        <li><strong>Limpiadores, Eruditos y Científicos:</strong> Para mantener el orden y el buen ambiente.</li>
+      </ul>
+    </div>
+
+    <div class="info-block energy-block">
+      <h3>⚡ La Energía</h3>
+      <p>La energía es nuestra "moneda". La consigues trabajando bien durante la semana y atendiendo en clase. Puedes usarla para evolucionar a tus Grumpis o canjearla por recompensas especiales en el aula.</p>
+    </div>
+
+    <div class="image-footer">
+      <img src="assets/grumpis/papa.png" alt="Personaje" (contextmenu)="disableRightClick($event)" />
+    </div>
+  </article>
+</main>

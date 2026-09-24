@@ -1,0 +1,50 @@
+<main class="premium-layout">
+  
+  <nav class="top-bar">
+    <button class="pill-btn btn-back" routerLink="/menu">◀ {{ "BACK" | translate }}</button>
+    <h1 class="page-title">{{ "SETTINGS.TITLE" | translate }}</h1>
+    <div class="spacer"></div>
+  </nav>
+
+  <section class="settings-card">
+    <div class="setting-item">
+      <div class="setting-info">
+        <h3>🔊 {{ "SETTINGS.SOUND" | translate }}</h3>
+      </div>
+      <div class="toggle-btn" [class.active]="settings.soundEnabled" (click)="toggleSetting('soundEnabled')"></div>
+    </div>
+
+    <div class="setting-item">
+      <div class="setting-info">
+        <h3>🔔 {{ "SETTINGS.NOTIFICATIONS" | translate }}</h3>
+      </div>
+      <div class="toggle-btn" [class.active]="settings.notificationsEnabled" (click)="toggleSetting('notificationsEnabled')"></div>
+    </div>
+
+    <div class="setting-item">
+      <div class="setting-info">
+        <h3>🌙 {{ "SETTINGS.DARK_MODE" | translate }}</h3>
+      </div>
+      <div class="toggle-btn" [class.active]="settings.darkMode" (click)="toggleSetting('darkMode')"></div>
+    </div>
+  </section>
+
+  <section class="account-actions">
+    <button class="action-btn btn-logout" (click)="logOut()">
+      🚪 {{ "LOGOUT" | translate }}
+    </button>
+  </section>
+
+  <section class="app-info-card">
+    <div class="info-content">
+        <p class="brand"><strong>Los Grumpis</strong></p>
+        <p>{{ "SETTINGS.FOOTER_DESC" | translate }}</p>
+        <p class="meta-data">
+        {{ "SETTINGS.IDEA_BY" | translate }}: Pablo Moreno <br>
+        {{ "SETTINGS.CREATED_BY" | translate }}: Daniel García y Pablo Moreno <br>
+        {{ "SETTINGS.START_DATE" | translate }}: Octubre 2025
+        </p>
+    </div>
+    </section>
+
+</main>

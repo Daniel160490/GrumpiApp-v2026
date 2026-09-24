@@ -1,0 +1,28 @@
+<main class="premium-layout">
+  
+  <nav class="top-bar">
+    <button class="pill-btn btn-back" routerLink="/menu">
+      ◀ {{ "BACK" | translate }}
+    </button>
+    <h1 class="page-title">{{ "BLOG.TITLE" | translate }}</h1>
+    <div class="spacer"></div>
+  </nav>
+
+  <section class="blog-feed">
+    <article class="post-card" *ngFor="let post of posts">
+      <div class="post-header">
+        <div class="post-meta">
+          <span class="author">👤 {{ post.autor }}</span>
+          <span class="date">📅 {{ post.fecha }}</span>
+        </div>
+        <h2 class="post-title">{{ post.titulo }}</h2>
+      </div>
+      
+      <div class="post-content">
+        <img *ngIf="post.imagen" [src]="post.imagen" class="post-image" alt="Imagen del post" />
+        <p>{{ post.contenido }}</p>
+      </div>
+    </article>
+  </section>
+
+</main>

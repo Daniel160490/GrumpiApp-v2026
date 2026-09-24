@@ -1,0 +1,37 @@
+<div class="management-container">
+  <header class="management-header">
+    <h1>🎓 Gestión de Alumnos</h1>
+    <div class="cycle-tabs">
+      <button *ngFor="let cycle of cycles" 
+              [class.active]="selectedCycle() === cycle" 
+              (click)="selectedCycle.set(cycle)">
+        {{ cycle }}º Primaria
+      </button>
+    </div>
+  </header>
+
+  <div class="table-wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Grumpis</th>
+          <th>Energía</th>
+          <th>Monedas</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let student of filteredStudents()">
+          <td><strong>{{ student.name }}</strong></td>
+          <td><input type="number" [(ngModel)]="student.grumpis" class="small-input"></td>
+          <td><input type="number" [(ngModel)]="student.energy" class="small-input"></td>
+          <td><input type="number" [(ngModel)]="student.coins" class="small-input"></td>
+          <td>
+            <button class="btn-save" (click)="save(student)">💾 Guardar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

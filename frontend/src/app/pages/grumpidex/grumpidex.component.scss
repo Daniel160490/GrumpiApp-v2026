@@ -1,0 +1,163 @@
+/* =========================================
+   VARIABLES GLOBALES
+   ========================================= */
+:host {
+  --bg-color: #f7f9fc;
+  --card-bg: #ffffff;
+  --text-dark: #1e293b;
+  --text-muted: #64748b;
+  --radius-xl: 32px;
+  --radius-pill: 50px;
+  --shadow-soft: 0 12px 24px rgba(0, 0, 0, 0.04);
+  --shadow-hover: 0 16px 32px rgba(0, 0, 0, 0.08);
+}
+
+.premium-layout {
+  min-height: 100vh;
+  background-color: var(--bg-color);
+  padding: 24px 20px;
+  font-family: 'Comfortaa', cursive, sans-serif;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* NAVEGACIÓN Y BUSCADOR */
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+
+  .pill-btn {
+    font-family: inherit; font-weight: 700; font-size: 0.95rem;
+    padding: 10px 20px; border-radius: var(--radius-pill);
+    border: none; cursor: pointer; box-shadow: var(--shadow-soft);
+    background: var(--card-bg); color: var(--text-muted);
+  }
+  .page-title { font-size: 1.5rem; font-weight: 700; color: var(--text-dark); margin: 0; }
+  .spacer { width: 80px; }
+}
+
+.search-container {
+  margin-bottom: 30px;
+  .search-input {
+    width: 100%; padding: 18px 24px; border-radius: var(--radius-pill);
+    border: none; box-shadow: var(--shadow-soft); font-family: inherit;
+    font-size: 1rem; color: var(--text-dark); outline: none;
+    &:focus { box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2); }
+  }
+}
+
+/* =========================================
+   GRID DE LA GRUMPIDEX
+   ========================================= */
+.grumpidex-grid {
+  display: grid;
+  /* Auto-fill crea tantas columnas como quepan (min 150px ancho) */
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 20px;
+}
+
+.grumpi-card {
+  background: var(--card-bg);
+  border-radius: 20px;
+  padding: 16px;
+  box-shadow: var(--shadow-soft);
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  position: relative;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+  }
+
+  .card-number {
+    position: absolute; top: 10px; left: 10px;
+    font-size: 0.8rem; font-weight: 700; color: var(--text-muted);
+    opacity: 0.6;
+  }
+
+  .card-image-wrapper {
+    width: 100px; height: 100px; margin: 10px auto;
+    img { width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1)); }
+  }
+
+  .card-info {
+    margin-top: auto;
+    .grumpi-name { font-size: 1.1rem; font-weight: 700; color: var(--text-dark); margin: 0 0 8px; }
+  }
+}
+
+.empty-state { text-align: center; padding: 40px; color: var(--text-muted); font-weight: 700; }
+
+/* =========================================
+   COLORES DE LOS TIPOS (Etiquetas)
+   ========================================= */
+.type-badge {
+  display: inline-block; padding: 4px 12px; border-radius: 12px;
+  font-size: 0.75rem; font-weight: 700; color: white; text-transform: uppercase;
+  &.large { padding: 6px 16px; font-size: 0.9rem; }
+  &.small { padding: 2px 8px; font-size: 0.65rem; }
+}
+
+/* PALETA ELEMENTAL */
+.bg-vida { background-color: #22c55e; }        /* Verde */
+.bg-agua { background-color: #3b82f6; }        /* Azul */
+.bg-fuego { background-color: #ef4444; }       /* Rojo */
+.bg-rayo { background-color: #eab308; color: #713f12; } /* Amarillo */
+.bg-aire { background-color: #38bdf8; }        /* Celeste */
+.bg-tierra { background-color: #d97706; }      /* Naranja/Marrón */
+.bg-luz { background-color: #fde047; color: #854d0e; } /* Dorado claro */
+.bg-oscuridad { background-color: #7c3aed; }   /* Morado oscuro */
+.bg-normal { background-color: #94a3b8; }      /* Gris */
+
+/* =========================================
+   ESTILOS DEL MODAL (Ficha Técnica)
+   ========================================= */
+.custom-modal {
+  border-radius: var(--radius-xl); border: none; font-family: inherit; overflow: hidden;
+  
+  .modal-header.header-colored {
+    border-bottom: none; padding: 20px 24px; color: white;
+    .modal-title { font-weight: 700; color: white; }
+  }
+
+  .grumpi-details { padding: 24px; }
+}
+
+.details-top {
+  display: flex; gap: 24px; margin-bottom: 24px;
+  @media (max-width: 576px) { flex-direction: column; align-items: center; }
+
+  .details-image {
+    width: 150px; height: 150px; flex-shrink: 0;
+    img { width: 100%; height: 100%; object-fit: contain; }
+  }
+
+  .details-stats {
+    flex-grow: 1;
+    .stat-row { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+    .stat-label { font-weight: 700; color: var(--text-muted); font-size: 0.9rem; width: 80px; }
+    .hp-value { font-weight: 700; font-size: 1.1rem; color: #ef4444; }
+    .clase-badge { background: #f1f5f9; padding: 4px 10px; border-radius: 8px; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; color: var(--text-dark); }
+    .grumpi-desc { margin-top: 15px; font-size: 0.95rem; color: var(--text-dark); line-height: 1.5; background: #f8fafc; padding: 16px; border-radius: 16px; font-style: italic; }
+  }
+}
+
+.details-bottom {
+  .section-subtitle { font-size: 1.2rem; font-weight: 700; color: var(--text-dark); margin-bottom: 16px; }
+  .attacks-list {
+    display: flex; flex-direction: column; gap: 12px;
+    
+    .attack-card {
+      background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 16px; padding: 16px;
+      .attack-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+      .attack-name { font-weight: 700; color: var(--text-dark); font-size: 1.05rem; }
+      .attack-effect { font-size: 0.9rem; color: var(--text-muted); }
+    }
+  }
+}

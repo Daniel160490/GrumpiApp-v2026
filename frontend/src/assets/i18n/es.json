@@ -1,0 +1,75 @@
+{
+  "BACK": "Atrás",
+  "LOGOUT": "Salir",
+  "GRUMPIDEX": "Grumpidex",
+  "BLOG": {
+    "TITLE": "Tablón de anuncios"
+  },
+  "BAG": {
+    "TITLE": "Mi Mochila"
+  },
+  "PROFILE_COMPONENT": {
+    "TITLE": "Mis Estadísticas",
+    "TOTAL_ENERGIES": "Energías",
+    "GRUMPIDOLARS": "Grumpidólares",
+    "COMBATS_MARKS": "Marcas de Combate",
+    "SEE_BAG": "Ver Mochila",
+    "GAME": "Ir al Juego",
+    "AVATAR_SELECTION": "Elige tu Avatar",
+    "ENERGIES": {
+      "WATER": "Energía Agua",
+      "FIRE": "Energía Fuego",
+      "WIND": "Energía Aire",
+      "LIGHT": "Energía Luz",
+      "LIGHTNING": "Energía Rayo"
+    }
+  },
+  "GUIDE": {
+    "TITLE": "Guía del Entrenador",
+    "ABOUT_GRUMPIS": "Sobre los Grumpis",
+    "GRUMPIS_CONTENT": "Los Grumpis son criaturas mágicas que evolucionan aprendiendo y realizando trabajos. Cada tipo tiene fortalezas únicas.",
+    "RULES": "Normas de la aplicación",
+    "RULES_CONTENT": "1. Mantén un lenguaje respetuoso. 2. Completa tus tareas para evolucionar. 3. No compartas tu PIN con nadie.",
+    "PRIVACY": "Protección de Datos",
+    "PRIVACY_CONTENT": "Tus datos personales están protegidos. Esta información es confidencial y solo es visible para ti y tu profesor tutor.",
+    "PRIVACY_NOTE": "Cumplimos con la normativa vigente de protección de datos."
+  },
+  "MODAL": {
+    "CLOSE_SESSION": "¿Seguro que quieres cerrar sesión?"
+  },
+  "SETTINGS": {
+    "TITLE": "Ajustes",
+    "SOUND": "Sonido",
+    "NOTIFICATIONS": "Notificaciones",
+    "DARK_MODE": "Modo Oscuro",
+    "FOOTER_DESC": "Aplicación dedicada a la gamificación en el aula, diseñada para mejorar el aprendizaje y la motivación.",
+    "CREATED_BY": "Creada por",
+    "START_DATE": "Comenzada en",
+    "IDEA_BY": "Idea original"
+  },
+  "HELP": {
+    "TITLE": "Manual del Entrenador",
+    "INTRO": "¡Bienvenido, Entrenador! Esta es tu guía para convertirte en el mejor amigo de los Grumpis.",
+    "PROFILE": {
+      "TITLE": "Tu Perfil",
+      "DESC": "Aquí ves cuántos Grumpis tienes, tus monedas y tus medallas de combate."
+    },
+    "DEX": {
+      "TITLE": "La Grumpidex",
+      "DESC": "¡Es tu enciclopedia! Aquí aparecen todos los Grumpis que existen y cómo conseguirlos."
+    },
+    "BAG": {
+      "TITLE": "Tu Mochila",
+      "DESC": "Guarda aquí todos los objetos, pociones y mejoras que ganes en clase."
+    },
+    "BLOG": {
+      "TITLE": "Blog del Profe",
+      "DESC": "Aquí el profe publicará noticias, retos y novedades. Si ves un punto rojo en el icono, ¡es que hay una publicación nueva que aún no has leído!"
+    }
+  },
+  "MEDALS": {
+    "TITLE": "Obtención de Medallas",
+    "INTRO": "Las medallas Grumpi son retos paralelos a la captura de criaturas. Accede a ellas cumpliendo los requisitos indicados en cada tarjeta.",
+    "LEAGUE_NOTICE": "¡Consigue 8 medallas para acceder a la Liga Grumpi!"
+  }
+}

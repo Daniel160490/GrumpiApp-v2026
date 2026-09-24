@@ -1,0 +1,65 @@
+.content-card {
+  background: white; padding: 40px; border-radius: 32px; box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+
+  h1 { text-align: center; color: #1e293b; margin-bottom: 20px; }
+  .intro-text { text-align: center; font-size: 1.1rem; color: #64748b; margin-bottom: 30px; }
+
+  .info-block { 
+    margin-bottom: 25px; 
+    h3 { color: #3b82f6; margin-bottom: 10px; }
+  }
+
+  .roles-block { background: #f8fafc; padding: 20px; border-radius: 20px; }
+  .energy-block { background: #fffbeb; padding: 20px; border-radius: 20px; h3 { color: #d97706; } }
+
+  .image-footer { 
+    text-align: center; margin-top: 30px; 
+    img { max-width: 150px; animation: floating 3s infinite ease-in-out; }
+  }
+}
+
+.legend-container {
+  display: flex; flex-direction: column; align-items: center;
+
+  .legend-wrapper {
+    position: relative;
+    margin-top: 50px;
+  }
+
+  .pointer {
+    position: absolute;
+    background: #dcfce7;
+    border: 2px solid #166534;
+    padding: 6px 10px;
+    border-radius: 8px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    width: 120px;
+    text-align: center;
+    z-index: 10;
+
+    &::after {
+      content: ''; position: absolute;
+      width: 2px; height: 20px; background: #166534;
+      left: 50%; bottom: -20px;
+    }
+  }
+
+  // Posicionamiento preciso
+  .label-type { top: -54px; left: -30px; }
+  .label-name { top: -54px; right: 99px; }
+  .label-health { top: 53px; left: 89px; }
+  .label-status { top: 176px; right: -20px; }
+  .label-attack { top: 380px; left: -140px; }
+  .label-energy { top: 440px; left: -140px; }
+  .label-damage { top: 440px; right: -130px; }
+  .label-desc { bottom: 10px; left: 80px; }
+}
+
+// Aseguramos que la carta se vea correctamente
+.card-preview {
+  width: 320px; background: white; border: 4px solid #000;
+  border-radius: 12px; padding: 15px; box-shadow: 10px 10px 0px rgba(0,0,0,0.1);
+  .card-body { height: 200px; background: #ddd; display: flex; align-items: center; justify-content: center; position: relative; }
+  .health-badge { position: absolute; top: 10px; left: 10px; background: #fce7f3; border: 2px solid #db2777; padding: 5px; border-radius: 50%; }
+}

@@ -1,0 +1,61 @@
+<main class="login-page">
+  
+  <button *ngIf="currentStep() !== 'curso'" class="btn-back" (click)="goBack()">⬅ Volver</button>
+
+  <div class="login-box">
+    
+    <header class="login-header">
+      <img class="logo-gaming" src="../../../assets/logo/logoApp.png" alt="Los Grumpis">
+      <p class="subtitle">¡Prepara tu equipaje, Grumpi-Aventurero!</p>
+    </header>
+
+    <div *ngIf="currentStep() === 'curso'" class="step-container fade-in">
+      <h2 class="step-title">¿En qué clase estás hoy?</h2>
+      <div class="grid-buttons">
+        <button *ngFor="let curso of cursos" class="game-btn btn-purple" (click)="selectCurso(curso.id)">
+          {{ curso.name }}
+        </button>
+      </div>
+    </div>
+
+    <div *ngIf="currentStep() === 'alumno'" class="step-container fade-in">
+      <h2 class="step-title">¿Quién eres tú?</h2>
+      <div class="grid-avatars">
+        <div *ngFor="let alumno of filteredAlumnos()" class="avatar-card" (click)="selectAlumno(alumno)">
+          <div class="avatar-circle">
+            <span *ngIf="alumno.avatar.length <= 2">{{ alumno.avatar }}</span>
+            <span *ngIf="alumno.avatar.length > 2">👾</span>
+          </div>
+          <span class="avatar-name">{{ alumno.name }}</span>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="currentStep() === 'pin'" class="step-container fade-in">
+      <h2 class="step-title">Introduce tu código secreto de 4 números</h2>
+      
+      <div class="pin-display">
+        <div class="pin-dot" [class.filled]="pinCode().length >= 1"></div>
+        <div class="pin-dot" [class.filled]="pinCode().length >= 2"></div>
+        <div class="pin-dot" [class.filled]="pinCode().length >= 3"></div>
+        <div class="pin-dot" [class.filled]="pinCode().length >= 4"></div>
+      </div>
+
+      <div class="keypad">
+        <button class="key-btn" (click)="pressKey('1')">1</button>
+        <button class="key-btn" (click)="pressKey('2')">2</button>
+        <button class="key-btn" (click)="pressKey('3')">3</button>
+        <button class="key-btn" (click)="pressKey('4')">4</button>
+        <button class="key-btn" (click)="pressKey('5')">5</button>
+        <button class="key-btn" (click)="pressKey('6')">6</button>
+        <button class="key-btn" (click)="pressKey('7')">7</button>
+        <button class="key-btn" (click)="pressKey('8')">8</button>
+        <button class="key-btn" (click)="pressKey('9')">9</button>
+        <button class="key-btn empty"></button>
+        <button class="key-btn" (click)="pressKey('0')">0</button>
+        <button class="key-btn delete-btn" (click)="deleteKey()">⌫</button>
+      </div>
+    </div>
+
+  </div>
+</main>

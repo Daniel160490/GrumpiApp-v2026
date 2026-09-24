@@ -1,0 +1,63 @@
+<main class="shop-page">
+  
+  <header class="shop-header">
+    <button class="btn-back" routerLink="/menu">◀ Menu</button>
+    
+    <div class="wallet-badge">
+      <span class="wallet-icon">🪙</span>
+      <div class="wallet-info">
+        <span class="wallet-label">Tus Grumpidólares</span>
+        <span class="wallet-amount">{{ grumpidolares() }} 🪙</span>
+      </div>
+    </div>
+  </header>
+
+  <nav class="category-nav">
+    <button [class.active]="categoriaSeleccionada() === 'todos'" (click)="cambiarCategoria('todos')">✨ Todos</button>
+    <button [class.active]="categoriaSeleccionada() === 'objetos'" (click)="cambiarCategoria('objetos')">🎒 Objetos</button>
+    <button [class.active]="categoriaSeleccionada() === 'grumpis'" (click)="cambiarCategoria('grumpis')">👾 Grumpis</button>
+    <button [class.active]="categoriaSeleccionada() === 'mejoras'" (click)="cambiarCategoria('mejoras')">⚡ Mejoras</button>
+  </nav>
+
+  <div class="energy-info-box" *ngIf="categoriaSeleccionada() === 'mejoras'">
+    <h3>🔋 ¿Cómo conseguir Energía Grumpi?</h3>
+    <p>La energía se consigue como recompensa por tu trabajo y actitud semanal.</p>
+    <ul>
+        <li>Apuntar la tarea en la agenda a diario.</li>
+        <li>Traer la tarea hecha en todas las áreas.</li>
+        <li>Mantener buena convivencia sin conflictos.</li>
+        <li>Atención y silencio en explicaciones y trabajo.</li>
+        <li>Participar y ayudar a los compañeros.</li>
+    </ul>
+    <small>Se entrega una energía por cada requisito cumplido (máximo 5 semanales).</small>
+</div>
+
+  <section class="products-grid">
+    <ng-container *ngFor="let item of items">
+      <div 
+        *ngIf="categoriaSeleccionada() === 'todos' || item.category === categoriaSeleccionada()"
+        class="product-card"
+        [style.background-color]="item.color"
+      >
+        <div class="product-icon-wrapper">
+          <span class="product-icon">{{ item.icon }}</span>
+        </div>
+        
+        <div class="product-details">
+          <h3 class="product-name">{{ item.name }}</h3>
+          <p class="product-desc">{{ item.description }}</p>
+        </div>
+
+        <button 
+          class="btn-buy" 
+          [disabled]="itemsComprados().includes(item.id)"
+          (click)="comprarItem(item)"
+        >
+          <span *ngIf="!itemsComprados().includes(item.id)">{{ item.cost }} 🪙</span>
+          <span *ngIf="itemsComprados().includes(item.id)">¡Tuyo! ✔</span>
+        </button>
+      </div>
+    </ng-container>
+  </section>
+
+</main>

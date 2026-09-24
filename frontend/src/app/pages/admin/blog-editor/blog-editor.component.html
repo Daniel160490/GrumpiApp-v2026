@@ -1,0 +1,25 @@
+<div class="editor-container">
+  <h1>📢 Crear nuevo post</h1>
+  
+  <div class="form-group">
+    <label>Título</label>
+    <input type="text" [(ngModel)]="post.titulo" placeholder="Título impactante...">
+  </div>
+
+  <div class="form-group">
+    <label>Subtítulo</label>
+    <input type="text" [(ngModel)]="post.subtitulo" placeholder="Un pequeño resumen...">
+  </div>
+
+  <div class="form-group">
+    <label>Descripción</label>
+    <textarea [(ngModel)]="post.descripcion" rows="6" placeholder="Escribe aquí el contenido del post..."></textarea>
+  </div>
+
+  <div class="form-group">
+    <label>Fotos</label>
+    <input type="file" (change)="onFileSelected($event)" multiple accept="image/*">
+  </div>
+
+  <button class="btn-publish" (click)="publicarPost()">Publicar en el Blog</button>
+</div>

@@ -1,0 +1,54 @@
+<div class="overview-container">
+  <header class="welcome-banner">
+    <div>
+      <h1>¡Hola, {{ teacherName() }}! 👋</h1>
+      <p>Panel de control de Los Grumpis.</p>
+    </div>
+    <div class="clock">
+      {{ currentTime() | date: 'dd/MM/yyyy' }} <br>
+      <strong>{{ currentTime() | date: 'HH:mm:ss' }}</strong>
+    </div>
+  </header>
+
+  <section class="stats-grid">
+    <div *ngFor="let stat of stats" 
+         class="stat-card" 
+         [class.interactive]="stat.id === 'students'"
+         (click)="stat.id === 'students' ? toggleDirectory() : null">
+      <span class="icon">{{ stat.icon }}</span>
+      <h3>{{ stat.value }}</h3>
+      <p>{{ stat.label }}</p>
+      <span *ngIf="stat.id === 'students'" class="hint">Click para ver lista</span>
+    </div>
+  </section>
+
+  <div class="student-directory" *ngIf="showStudentDirectory()">
+    <div class="directory-header">
+      <h2>📁 Listado de Alumnos</h2>
+      <div class="grade-selector">
+        <button *ngFor="let g of grades" 
+                [class.active]="selectedGrade() === g"
+                (click)="selectedGrade.set(g)">
+          {{ g }}º
+        </button>
+      </div>
+    </div>
+
+    <div class="student-list-preview">
+      <div class="student-pill" *ngFor="let student of studentsInSelectedGrade()">
+        👤 {{ student.name }}
+      </div>
+      <p *ngIf="studentsInSelectedGrade().length === 0" class="empty-msg">
+        No hay alumnos registrados en este curso.
+      </p>
+    </div>
+  </div>
+
+  <section class="quick-actions">
+    <h2>Acciones Rápidas</h2>
+    <div class="actions-grid">
+      <button routerLink="/admin/students" class="action-btn">👤 Gestionar Alumnos</button>
+      <button routerLink="/admin/blog" class="action-btn">➕ Nuevo Post</button>
+    </div>
+  </section>
+</div>

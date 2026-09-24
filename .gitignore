@@ -1,0 +1,14 @@
+# Carpetas de dependencias de Node (Frontend)
+frontend/node_modules/
+frontend/.angular/
+frontend/dist/
+
+# Carpetas de Python (Backend)
+backend/venv/
+backend/.venv/
+backend/__pycache__/
+backend/*.pyc
+
+# Archivos del sistema o editor
+.DS_Store
+.vscode/

@@ -1,0 +1,81 @@
+/* Variables globales (mismas que en perfil) */
+:host {
+  --bg-color: #f7f9fc;
+  --card-bg: #ffffff;
+  --text-dark: #1e293b;
+  --radius-xl: 32px;
+  --shadow-soft: 0 12px 24px rgba(0, 0, 0, 0.04);
+}
+
+.premium-layout {
+  min-height: 100vh;
+  background-color: var(--bg-color);
+  padding: 24px 20px;
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+.settings-card {
+  background: var(--card-bg);
+  border-radius: var(--radius-xl);
+  padding: 20px;
+  box-shadow: var(--shadow-soft);
+  margin-bottom: 24px;
+
+  .setting-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    border-bottom: 1px solid #f1f5f9;
+    &:last-child { border: none; }
+
+    h3 { font-size: 1.1rem; font-weight: 700; color: var(--text-dark); margin: 0; }
+
+    .toggle-btn {
+      width: 50px; height: 28px; background: #e2e8f0;
+      border-radius: 20px; position: relative; cursor: pointer; transition: 0.3s;
+      &::after {
+        content: ''; position: absolute; top: 4px; left: 4px;
+        width: 20px; height: 20px; background: white;
+        border-radius: 50%; transition: 0.3s;
+      }
+      &.active {
+        background: #3b82f6;
+        &::after { transform: translateX(22px); }
+      }
+    }
+  }
+}
+
+.account-actions {
+  .action-btn {
+    width: 100%; padding: 18px; border: none;
+    border-radius: 20px; font-weight: 700; cursor: pointer;
+    background: #fee2e2; color: #ef4444; box-shadow: var(--shadow-soft);
+  }
+}
+
+.app-info-card {
+  margin-top: 30px;
+  background: transparent;
+  text-align: center;
+  padding: 20px;
+  
+  .info-content {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    
+    .brand {
+      color: var(--text-dark);
+      font-size: 1rem;
+      margin-bottom: 8px;
+    }
+    
+    .meta-data {
+      margin-top: 15px;
+      font-size: 0.75rem;
+      opacity: 0.8;
+    }
+  }
+}

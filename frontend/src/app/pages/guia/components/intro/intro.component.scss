@@ -1,0 +1,26 @@
+.premium-layout { min-height: 100vh; background-color: #f7f9fc; padding: 24px 20px; max-width: 700px; margin: 0 auto; }
+
+.content-card {
+  background: white; padding: 40px; border-radius: 32px; box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+
+  h1 { text-align: center; color: #1e293b; margin-bottom: 20px; }
+  .intro-text { text-align: center; font-size: 1.1rem; color: #64748b; margin-bottom: 30px; }
+
+  .info-block { 
+    margin-bottom: 25px; 
+    h3 { color: #3b82f6; margin-bottom: 10px; }
+  }
+
+  .roles-block { background: #f8fafc; padding: 20px; border-radius: 20px; }
+  .energy-block { background: #fffbeb; padding: 20px; border-radius: 20px; h3 { color: #d97706; } }
+
+  .image-footer { 
+    text-align: center; margin-top: 30px; 
+    img { max-width: 150px; animation: floating 3s infinite ease-in-out; }
+  }
+}
+
+@keyframes floating {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}

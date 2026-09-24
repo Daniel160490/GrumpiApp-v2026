@@ -1,0 +1,32 @@
+<main class="premium-layout">
+  <nav class="top-bar">
+    <button class="pill-btn btn-back" routerLink="/guia">◀ Volver</button>
+  </nav>
+
+  <article class="content-card">
+    <h1>🏅 Obtención de Medallas</h1>
+    
+    <p class="description">
+      Las medallas son retos especiales que van paralelos a la captura de tus Grumpis. ¡Demuestra tu destreza realizando trabajos originales y únicos!
+    </p>
+
+    <div class="highlight-box">
+      ⚠️ <strong>¡Importante!</strong> Cuando consigas las 9 medallas, obtendrás el pase para acceder a la <strong>Liga Grumpi</strong>.
+    </div>
+
+    <div class="medals-grid">
+        <div class="medal-item" *ngFor="let medal of medals" (click)="openMedal(medal)">
+            <img [src]="medal.src" [alt]="medal.name">
+            <span>{{ medal.name }}</span>
+        </div>
+    </div>
+
+  </article>
+</main>
+
+<div class="modal-overlay" *ngIf="selectedMedal" (click)="closeMedal()">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <button class="close-btn" (click)="closeMedal()">✕</button>
+    <img [src]="selectedMedal.src" [alt]="selectedMedal.name">
+  </div>
+</div>
